@@ -36,6 +36,18 @@ services:
     networks:
       - local
 
+  redis:
+    container_name: ${COMPOSE_PROJECT_NAME}_redis
+    user: ${UID}:${GID}
+    image: redis:8-alpine
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT_EXTERNAL}:6379"
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - local
+
   nginx:
     container_name: ${COMPOSE_PROJECT_NAME}_nginx
     image: nginx:alpine

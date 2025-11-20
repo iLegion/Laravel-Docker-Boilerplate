@@ -8,6 +8,7 @@ This build is optimized for local development, utilizes **Alpine Linux** to mini
 
 * **PHP 8.4** (FPM Alpine) — includes global `laravel/installer`.
 * **PostgreSQL 18** (Alpine).
+* **Redis 8** (Alpine).
 * **Nginx** (Alpine).
 
 ---
@@ -30,14 +31,17 @@ PROJECT_ROOT="../"
 UID=1000
 GID=1000
 
-# Nginx Settings
-NGINX_PORT_EXTERNAL=80
-
 # Database Settings
 DB_DATABASE=database-name
 DB_USERNAME=root
 DB_PASSWORD=root
 DB_PORT_EXTERNAL=5432
+
+# Nginx Settings
+NGINX_PORT_EXTERNAL=80
+
+# Redis Settings
+REDIS_PORT_EXTERNAL=6379
 ```
 
 ### 2. Configuration nginx/local.conf
